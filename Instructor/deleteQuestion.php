@@ -1,0 +1,447 @@
+<?php
+session_start();
+?>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Delete Question</title>
+        <link rel="stylesheet" href="style.css">
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            .profileBtn{
+                background-color: #fffafa;
+                margin-left: 15px;
+                border:none;
+                font-weight: bold;
+                color: #812928;
+                vertical-align: top;
+                width: 38px;
+                cursor:pointer;
+            }
+            
+            .contentTopNavBar ul li{
+                display: inline;
+            }
+            
+            h1{
+                color: #541b1a;
+                text-align: center;
+                font-size: 20px;
+                margin-top: 20px;
+                font-weight: 550;
+            }
+            
+            .backBtn{
+                position: absolute;
+                bottom: 0px;
+                width: 100%;
+                text-transform: uppercase;
+                text-align: center;
+                font-weight: 600;
+                letter-spacing: 1px;
+                font-size: 22px;
+            }
+
+            .backBtn a{
+                color: #541b1a;
+            }
+            
+            .contentTopNavBar ul li{
+                display: inline;
+            }
+            
+            .classroom{
+                position: absolute;
+                bottom: 10px;
+                width: 100%;
+            }
+            
+            .homeBtn{
+                position: absolute;
+                bottom: 0px;
+                width: 100%;
+                text-transform: uppercase;
+                text-align: center;
+                font-weight: 600;
+                letter-spacing: 1px;
+                font-size: 22px;
+            }
+            
+            .homeBtn a{
+                color: #541b1a;
+            }
+            
+            .questionType{
+                border:none;
+                font-size: 16px;
+                color: white;
+                text-decoration: none;
+                margin-left: 10px;
+                background-color: #997c7c;
+                padding: 10px 20px;
+                border-radius: 2px;
+            }
+            
+            .btnSelections{
+                margin-left: 45px;
+                margin-top: 10px;
+                margin-bottom: 35px;
+            }
+            
+            .questionType:hover{
+                box-shadow: 1px 1px 5px rgba(153, 124, 124, 0.7);
+            }
+            
+            
+            /*Question List Start*/
+            
+            .titleBar{
+                margin: 10px 35px;
+                max-width: 100%;
+                border-radius: 10px;
+                padding: 10px 20px;
+                position: relative;
+                color: #541b1a;
+                font-weight: 600;
+                font-size: 22px;
+            }
+            
+            .quizTotalScore{
+                font-size: 18px;
+                opacity:0.8;
+                padding: 8px 0;
+            }
+            
+            .quizCount{
+                margin-left: 70px;
+                color: #541b1a;
+            }
+            
+            #quizCountTxt{
+                text-transform: capitalize;
+                font-weight: 500;
+            }
+            
+            .menuButtonContainer{
+                float: right;
+            } 
+            
+            .remindText{
+                margin-top: 30px;
+                margin-left: 60px;
+                color: #541b1a;
+            }
+            
+            .gameQuiz{
+                border: 2px solid #812928;
+                border-radius: 10px;
+                max-width: 100%;
+                min-height: 100px;
+                padding: 20px;
+                margin: 20px 60px 35px 60px;
+                color: #541b1a;
+                background-color: white;
+            }
+            
+                /*----------- Quiz Design Start ------------*/
+                
+                .classroomTxt{
+                    text-transform: capitalize;
+                }
+                
+                .quizName, .quizDesc, .quizScore, .quizTotalQuestion{
+                    padding: 3px 0;
+                }
+                
+                .quizName{
+                    font-weight: 700;
+                    font-size: 20px;
+                    text-transform: capitalize;
+                }
+                
+                .quizQuestionOrder{
+                    text-transform: capitalize;
+                    font-size: 20px;
+                }
+                
+                .quizQuestionAndAnswer{
+                    padding: 12px 0;
+                }
+                
+                .quizAnswer{
+                    padding-bottom: 5px;
+                    margin-left: 20px;
+                }
+                
+                .questionBorderLine{
+                    margin: 10px 0;
+                    border: none;
+                    border-top:1px solid rgba(153, 124, 124, 0.4);
+                }
+                
+                .questionDetails p{
+                    margin-left: 5px;
+                    margin-right: 20px;
+                    display:inline-block;
+                }
+                
+                .questionMenuBtn{
+                    background-color: white;
+                    border:none;
+                }
+                
+                
+                .delQuestionBtn {
+                    display:block;
+                    width: 30%;
+                    margin: 60px auto 0px auto;
+                    background-color: #812928;
+                    color: white;
+                    padding: 14px 20px;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    letter-spacing: 2px;
+                }
+                
+                /*----------- Quiz Design End ------------*/
+            
+            /*Game Page Content End*/
+        </style>
+        
+        <script>
+            function deleteQuestion() {
+              let text = "Are you sure to delete the question?\nPress OK to delete.";
+              if (confirm(text)) {
+                return true;
+              }
+              return false;
+            }
+        </script> 
+    </head>
+    <body>
+        <?php
+        if($_SESSION["email"]) {
+            define('directAccess', TRUE);
+        ?>
+            <!-- The sidebar -->
+            <div class="sidebar">
+                <?php
+                $instructorID = $_GET['instructorID'];
+                $classID = $_GET['classID'];
+                $gameID = $_GET['gameID'];
+                $questionID = $_GET['questionID'];
+                ?>
+                <a href="game.php?<?php echo"instructorID={$instructorID}&classID={$classID}&gameID={$gameID}";?>">Game - Question List</a>
+                <a href="powerStore.php?<?php echo"instructorID={$instructorID}&classID={$classID}&gameID={$gameID}";?>">Power Store</a>
+               
+                <div class="backBtn">
+                    <a href="editGame.php?<?php echo"instructorID={$instructorID}&classID={$classID}&gameID={$gameID}"?>">back</a>
+                </div>
+            </div>
+            <?php
+                $con = new mysqli('localhost', 'root', '', 'TARUMTEducationDB');
+                $query = "select * from instructorAccount WHERE instructorID = '$instructorID'";
+                $result = $con->query($query);
+
+                if($result){
+                    while($row = $result->fetch_assoc()){
+                        $profilePicture = $row["profilePicture"];
+                    }
+                }
+                $con->close();
+            ?>
+            <!-- Page content -->
+            <div class="content">
+                <!-- Page content: TOP navigation bar -->
+                <div class="contentTopNavBar">
+                    <a href="#"  style="color: #541b1a;font-weight: 650;">TARUMT Game-based Teaching System</a>
+                    <div class="usernamePosition">
+                        <ul>
+                            <li>
+                                <button  onclick="window.location.href='userProfile.php?<?php echo"instructorID={$instructorID}";?>'" class="profileBtn">
+                                    <img class="profilePic" src="profileImage/<?php echo$profilePicture;?>" />
+                                </button>
+                            </li>
+                            <li>
+                                <a href="logout.php" id="logoutBtn">logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>        
+            <!-- Page content: Main Content -->
+            <div class="contentMiddle">
+                <?php
+                    $con = new mysqli('localhost', 'root', '', 'TARUMTEducationDB');
+                    
+                    //find quiz name
+                    $findNameQuery = "select * from Game WHERE gameID = '$gameID'";
+                    $findNameResult = $con->query($findNameQuery);
+
+                    if($findNameResult){
+                        while($row = $findNameResult->fetch_assoc()){
+                            $quizName = $row["quizName"];
+                            $totalScore = $row["totalScore"];
+                        }
+                    }
+                
+                ?>
+                <!-- Classroom Title Bar -->
+                <div class="titleBar">
+                    <p class="classroomTxt"><?php echo"$quizName";?></p>
+                </div>
+                <?php
+                    $gameSql = "SELECT * FROM gamequestion WHERE questionID = '$questionID' AND gameID='$gameID'";
+                    $gameResult = $con->query($gameSql);
+                    
+                ?>                
+                <!-- Game Quiz Created -->
+                <div class="gameQuizList">
+                    <p class="remindText">Please <b>ensure</b>   the question you want to delete:</p>
+                    <form method="post" onsubmit="return deleteQuestion();">
+                    <?php
+                        $questionNumber = 1;
+                        if($gameResult){
+                            while ($row = $gameResult->fetch_assoc()){
+                                $questionID = $row["questionID"];
+                                $questionType = $row["questionType"];
+                                $question = $row["question"];
+                                $duration = $row["duration"];
+                                $scoreAwarded = $row["scoreAwarded"];
+                                $pointEarned = $row["pointEarned"];
+                                
+                                //question number
+                                printf('
+                                    <div class="gameQuiz">
+                                    <div class="dropdown" style="float:right;margin-bottom: 10px;">
+                                    ');?>
+                    
+                                <?php 
+                                printf('</div>
+                                        <p class="quizQuestionOrder">
+                                            <i style="font-size:16px;margin-right:3px;" class="fas">&#xf61f;</i> 
+                                            Question
+                                        </p> ');
+                                
+                                //question
+                                printf('<div class="quizQuestionAndAnswer">
+                                        <p class="quizQuestion"><b>Q.</b> %s</p>
+                                        <hr class="questionBorderLine">
+                                        <div class="quizAnswerSet">', $question);
+                                
+                                //answer
+                                $findAnswerSql = "SELECT * FROM answeroption WHERE questionID='$questionID'";
+                                $answerResult = $con->query($findAnswerSql);
+
+                                if($answerResult->num_rows > 0){
+                                    while ($row = $answerResult->fetch_assoc()){
+                                        $answerID = $row["answerID"];
+                                        $answerText = $row["answerText"];
+                                        $correctness = $row["correctness"];
+
+                                        if($correctness == 1){
+                                            printf('
+                                                    <p class="quizAnswer">
+                                                        <i style="font-size:16px;margin-right:3px;color: limegreen;" class="fas">&#xf058;</i>
+                                                        %s
+                                                    </p>
+                                                     ', $answerText);
+                                        }else if($correctness == 0){
+                                            printf('
+                                                    <p class="quizAnswer">
+                                                        <i style="font-size:16px;margin-right:3px;color: red;" class="fas">&#xf057;</i>
+                                                        %s
+                                                    </p>
+                                                    ', $answerText);
+                                        }
+                                    }
+                                }
+                                
+                                // Duration, Point, Score
+                                printf('
+                                    </div>
+                                    </div>
+                                    <div>
+                                        <div class="questionDetails">
+                                            <p>
+                                                <i style="font-size:16px;" class="fa">&#xf017;</i>
+                                                %d seconds
+                                            </p>
+                                            <p>
+                                                <i style="font-size:16px;" class="fa">&#xf005;</i>
+                                                %d points
+                                            </p>
+                                            <p>
+                                                <i style="font-size:16px;" class="fa">&#xf14a;</i>
+                                                %d scores
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>', $duration, $pointEarned, $scoreAwarded);
+                                $questionNumber++;
+                            }
+                        }
+                        
+                        if(isset($_POST["delete"])){
+                            //del answer
+                            $delAsql = "DELETE FROM answeroption WHERE questionID = '$questionID'";
+                            if ($con->query($delAsql) === TRUE) {
+                                //del question
+                                $delQsql = "DELETE FROM gamequestion WHERE gameID = '$gameID' and questionID = '$questionID'";
+                                if ($con->query($delQsql) === TRUE) {
+                                //update score of game
+                                    //find the latest score of the game
+                                    $findTotalScoreQuery = "select * from game WHERE gameID = '$gameID'";
+                                    $findScoreResult = $con->query($findTotalScoreQuery);
+
+                                    if($findScoreResult){
+                                        while($row = $findScoreResult->fetch_assoc()){
+                                            $totalScore = $row["totalScore"];
+                                        }
+                                    }
+                                    
+                                    $newScore = $totalScore - $scoreAwarded;
+                                    
+                                    $updateScoreSql = "UPDATE Game 
+                                                SET totalScore = '$newScore'
+                                                WHERE gameID = '$gameID'";
+
+                                    if ($con->query($updateScoreSql) === TRUE) {
+                                        echo"<script type='text/javascript'> 
+                                        location.replace('editGame.php?instructorID={$instructorID}&classID={$classID}&gameID={$gameID}')
+                                        alert('Question deleted successfully.')
+                                         </script>";
+                                    }
+                                }
+                            } else {
+                                echo"<script type='text/javascript'> 
+                                    location.replace('editGame.php?instructorID={$instructorID}&classID={$classID}&gameID={$gameID}')
+                                    alert('Failed to delete question.')
+                                     </script>";
+                            }
+                        }
+                        $con->close();
+                    ?>
+                    <input type="submit" name="delete" value="DELETE QUESTION" class="delQuestionBtn">
+                    
+                    </form> 
+                </div>
+            </div>
+        </div>
+        <?php
+            if(!defined('directAccess')){
+                echo"<script type='text/javascript'> 
+                    location.replace('login.php')
+                    alert('Direct access not permitted, please login first.')
+                     </script>";
+            }
+        }else {
+            echo '<script type="text/javascript">'; 
+            echo 'alert("Please login first to continue.");'; 
+            echo 'window.location.href = "login.php";';
+            echo '</script>';
+        };
+        ?>
+    </body>
+</html>
