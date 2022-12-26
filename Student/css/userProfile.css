@@ -1,0 +1,88 @@
+.profileBtn{
+    background-color: #f3fafd;
+    margin-left: 15px;
+    border:none;
+    font-weight: bold;
+    color: #02055A;
+    vertical-align: top;
+    width: 38px;
+}
+
+.contentTopNavBar ul li{
+    display: inline;
+}
+
+h1{
+    color: #1a1b54;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: 550;
+}
+
+.homeBtn{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 22px;
+}
+
+.homeBtn a{
+    color: #1a1b54;
+}
+
+/*Form Start*/
+
+.userProfileFormContainer{
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 30px 20px;
+    width: 300px;
+    margin: 15px auto;
+    box-shadow: 1px 2px 9px 0px rgba(125, 124, 153, 0.3);
+}
+
+input[type=text]{
+    width: 100%;
+    padding: 12px 10px;
+    margin: 10px 0 22px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.infoContainer{
+    text-align: center;
+    line-height: 30px;
+    margin-bottom: 30px;
+}
+
+.editBtn {
+    width: 100%;
+    background-color: #02055A;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 2px;
+}
+
+.userProfilePic{
+    border-radius: 50%; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+    cursor: default;
+}
+
+/*Form End*/
