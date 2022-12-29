@@ -1,0 +1,104 @@
+.loginTopNavBar{
+    text-align: center;
+    padding: 15px 0;
+    background-color: #02055A;
+    color:white;
+    box-shadow: 2px 2px 5px #7e7c99;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 18px;
+    overflow: hidden;
+    position:fixed;
+    top:0;
+    width:100%;
+}
+
+.topNavContent{
+    padding: 0 10px;
+    display: flex;                 
+    flex-direction: row;            
+    flex-wrap: nowrap;              
+    justify-content: space-between; 
+    margin: 0 10px;
+}
+
+/*----------- Question Start ------------*/
+
+.nextScoreArea p{
+    margin-top: 190px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.nextScoreArea h3 {
+    text-align: center;
+    font-size: 15px;
+    margin-top: 10px;
+    
+}
+
+#timer {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    color: #02055A;
+}
+
+.container {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    height: 30px;
+}
+
+.play, .pause {
+    width: 15%;
+    background-color: #02055A;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 2px;
+}
+
+.hintFooter{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+    padding: 10px 0px 10px 0px;
+    font-size: 15px;
+    font-family: inherit;
+    font-weight: 900;
+    text-align: center;
+    font-style: oblique;
+}
+
+.tab{
+    display: inline-block;
+    margin-left: 140px;
+}
+
+.fixed-left-bottom-btn{
+    position: fixed;
+    bottom:100px;
+    left:20px;
+}
+
+
+
+.instructorLoginTxt a{
+    text-decoration: none;
+    text-transform: capitalize;
+    background-color: #7d7c99;
+    color:white;
+    padding: 7px 15px;
+    border-radius: 2px;
+}
